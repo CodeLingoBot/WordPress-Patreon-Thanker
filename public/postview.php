@@ -23,21 +23,17 @@ class mw_patreon_thanks_pub extends WP_Widget {
 
 	// Widget FRONT-END
 	public function widget( $args, $instance ) {
-		$mwpt_category = get_option( 'mwpt_category' );
+		wp_enqueue_style( 'mwpt-public', plugin_dir_url( __FILE__ ) . '/partials/style.css?' . time() );
 
+		$mwpt_category = get_option( 'mwpt_category' );
 		$cats = get_the_category(); // returns array of category objs
 		if ( ! empty( $cats ) && !is_home() ) {
 			for ( $i=0; $i < sizeof( $cats ); $i++ ) {
 				if ( esc_html( $cats[$i]->cat_ID ) == $mwpt_category ) {
-					wp_enqueue_script( 'mwpt-public', plugin_dir_url( __FILE__ ) . '/partials/script.js?' . time() );
-					wp_enqueue_style( 'mwpt-public', plugin_dir_url( __FILE__ ) . '/partials/style.css?' . time() );
-
 					echo $args['before_widget'];
 
-					if (!empty($instance['title'])) {
-						$title = apply_filters( 'widget_title', $instance['title'] );
-						echo $args['before_title'] . $title . $args['after_title'];
-					}
+					$title = apply_filters( 'widget_title', 'Thank You 💕' );
+					echo $args['before_title'] . $title . $args['after_title'];
 					include_once( 'partials/public.php' );
 
 					echo $args['after_widget'];
