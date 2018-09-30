@@ -6,6 +6,8 @@ th label {
 
 form { margin-bottom: 50px; }
 
+.wp-admin select { width: 100%; }
+
 .actions { display: inline-block; }
 .actions .dashicons,
 .addPatron

@@ -26,8 +26,8 @@ function removePatron(elem) {
 function addPatron() {
 	var $ = jQuery;
 	var numPatrons = $('.patron-repeatable').length;
-	$('input[name=num_patrons]').val(numPatrons+1);
-	var currPatron = 'patron-'+ (numPatrons+1);
+	$('input[name=num_patrons]').val(numPatrons);
+	var currPatron = 'patron-' + (numPatrons);
 
 	var tmp = $('.patron-repeatable')[0];
 	var clone = $(tmp).clone();
@@ -38,6 +38,7 @@ function addPatron() {
 		.attr('for', currPatron);
 	var cloneinput = $(clone).children('input');
 	cloneinput
+		.val('')
 		.removeAttr('name')
 		.attr('name', currPatron);
 
