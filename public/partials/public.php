@@ -8,7 +8,7 @@ $num_patrons = intval( get_option( 'mwpt_num_patrons' ) );
 <!-- This page should be mostly HTML with a little PHP. -->
 
 <div id="patreon-thanks">
-	<h2>Thanks to my $<?php echo number_format( ( get_option( 'mwpt_minCentsPledged' ) / 100 ), 2, '.', ' ' ) ?> tier Patreons for helping to support this blog!</h2>
+	<h2>Thanks to my $<?php echo number_format( ( get_option( 'mwpt_minCentsPledged' ) / 100 ), 2, '.', ' ' ) ?> tier Patreons for helping to support this release!</h2>
 	<ul>
 		<?php
 		for ( $i=0; $i < $num_patrons; $i++ ) {

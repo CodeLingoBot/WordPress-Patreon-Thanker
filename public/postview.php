@@ -1,17 +1,22 @@
 <?php
 
-function load_mw_patreon_thanks_public() {
+function load_mw_patreon_thanks_public( $content ) {
 	$mwpt_category = get_option( 'mwpt_category' );
 
-	$current_page_categories = get_the_category();
-	if ( ! empty( $categories ) ) {
-		for ( $i=0; $i < sizeof( $current_page_categories ); $i++ ) {
-			if ( esc_html( $categories[$i]->name ) == $mwpt_category ) {
-				mw_patreon_thanks_pub();
+	$cats = get_the_category(); // returns array of category objs
+	if ( ! empty( $cats ) ) {
+		for ( $i=0; $i < sizeof( $cats ); $i++ ) {
+			if ( esc_html( $cats[$i]->cat_ID ) == $mwpt_category ) {
+				// mw_patreon_thanks_pub();
+				$newcontent = 'testing ';
+				return $newcontent . $content;
+			} else {
+				return $content;
 			}
 		}
 	}
 }
+add_filter( 'the_content', 'load_mw_patreon_thanks_public', 100 );
 
 function mw_patreon_thanks_pub() {
 	wp_enqueue_style( 'mwpt-public', plugin_dir_url( __FILE__ ) . '/partials/style.css?' . time() );
