@@ -28,5 +28,6 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 defined( 'WPINC' ) or die( 'No script kiddies please!' );
 
 include_once('admin/dashboard.php');
+include_once('public/postview.php');
 
 ?>

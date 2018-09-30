@@ -6,6 +6,8 @@ th label {
 
 form { margin-bottom: 50px; }
 
+#patrons { margin-bottom: 25px; }
+
 .wp-admin select { width: 100%; }
 
 .actions { display: inline-block; }

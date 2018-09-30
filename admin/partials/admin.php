@@ -73,8 +73,7 @@ $num_patrons = intval( get_option( 'mwpt_num_patrons' ) );
 		<input type="submit" value="Update" />
 	</form>
 	<div class="actions">
-		<a href="https://www.patreon.com/members?lastChargeStatus=<?php echo $last_charge_status ?>&membershipType=active_patron&sort=-pledgeAmountCents&minCentsPledged=<?php echo $min_cents_pledged ?>" target="_blank" rel="noopener noreferrer">See current tiered Patrons</a> |
-		<a class="addPatron">Add Patron<span class="dashicons dashicons-plus"></span></a>
+		<a href="https://www.patreon.com/members?lastChargeStatus=<?php echo $last_charge_status ?>&membershipType=active_patron&sort=-pledgeAmountCents&minCentsPledged=<?php echo $min_cents_pledged ?>" target="_blank" rel="noopener noreferrer">See current tiered Patrons</a>
 	</div>
 	<form method="post">
 		<input type="hidden" name="update_patrons" value="true">
@@ -99,7 +98,7 @@ $num_patrons = intval( get_option( 'mwpt_num_patrons' ) );
 			</div>
 			<?php } ?>
 		</div>
-		<input type="submit" value="Update" />
+		<input type="submit" value="Update" /> | <a class="addPatron">Add Patron<span class="dashicons dashicons-plus"></span></a>
 	</form>
 </div>
 
