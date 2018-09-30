@@ -1,0 +1,17 @@
+th label {
+	width: 100%;
+	display: block;
+	text-align: right !important;
+}
+
+form { margin-bottom: 50px; }
+
+.actions { display: inline-block; }
+.actions .dashicons,
+.addPatron
+{ cursor: pointer; }
+
+.patron-repeatable {
+	display: flex;
+	align-items: center;
+}

@@ -12,8 +12,8 @@ function load_mw_patreon_thanks() {
 add_action( 'admin_menu', 'load_mw_patreon_thanks' );
 
 function mw_patreon_thanks_dash() {
-	wp_enqueue_style( 'mwpt-admin-css', plugin_dir_url( __FILE__ ) . '/partials/style.css' );
-	wp_enqueue_script( 'mwpt-admin-js', plugin_dir_url( __FILE__ ) . '/partials/script.js' );
+	wp_enqueue_style( 'mwpt-admin', plugin_dir_url( __FILE__ ) . '/partials/style.css?' . time() );
+	wp_enqueue_script( 'mwpt-admin', plugin_dir_url( __FILE__ ) . '/partials/script.js?' . time() );
 
 	include_once( 'partials/admin.php' );
 }
