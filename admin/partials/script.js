@@ -26,7 +26,7 @@ function removePatron(elem) {
 function addPatron() {
 	var $ = jQuery;
 	var numPatrons = $('.patron-repeatable').length;
-	$('input[name=num_patrons]').val(numPatrons);
+	$('input[name=num_patrons]').val(numPatrons + 1);
 	var currPatron = 'patron-' + (numPatrons);
 
 	var tmp = $('.patron-repeatable')[0];

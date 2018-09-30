@@ -14,11 +14,11 @@ $category = get_option( 'mwpt_category' );
 if ( isset( $_POST[ 'update_patrons' ] ) ) {
 	$num_patrons = $_POST['num_patrons'];
 	update_option( 'mwpt_num_patrons', $num_patrons );
-	for ( $i=0; $i < $num_patrons; $i++ ) {
-		update_option( 'mwpt_patron_' . $i, $_POST['patron-'.$i+1] );
+	for ( $i=0; $i < intval( $num_patrons ); $i++ ) {
+		update_option( 'mwpt_patron_' . $i, $_POST['patron-'.$i] );
 	}
 }
-$num_patrons = get_option( 'mwpt_num_patrons' );
+$num_patrons = intval( get_option( 'mwpt_num_patrons' ) );
 
 ?>
 
@@ -78,18 +78,17 @@ $num_patrons = get_option( 'mwpt_num_patrons' );
 	</div>
 	<form method="post">
 		<input type="hidden" name="update_patrons" value="true">
-		<input type="hidden" name="num_patrons" value="0">
+		<input type="hidden" name="num_patrons" value="<?php echo $num_patrons ?>">
 		<div id="patrons">
 			<?php
-			if ( $num_patrons !== '0' && gettype( $num_patrons ) !== 'NULL' ) {
-				echo 'wow ' . gettype( $num_patrons ) . ' ' . $num_patrons;
-				for ( $i=0; $i < intval( $num_patrons ); $i++ ) {
+			if ( $num_patrons !== 0 && gettype( $num_patrons ) !== 'NULL' ) {
+				for ( $i=0; $i < $num_patrons; $i++ ) {
 					$curr_patron = 'mwpt_patron_' . $i;
 					echo '<div class="patron-repeatable">';
 					echo '<label for="patron-' . $i . '">Patron Twitter handle: @</label>';
 					echo '<input type="text" name="patron-' . $i . '" value="' . get_option( $curr_patron ) . '"/>';
 					echo '<span class="dashicons dashicons-no"></span>';
-					echo '<div>';
+					echo '</div>';
 
 				}
 			} else { ?>
